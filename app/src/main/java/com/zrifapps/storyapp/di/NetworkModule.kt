@@ -60,7 +60,7 @@ object NetworkModule {
         moshi: Moshi,
         okHttpClient: OkHttpClient,
     ): Retrofit = Retrofit.Builder()
-        .baseUrl("https://story-api.dicoding.dev/v1")
+        .baseUrl("https://story-api.dicoding.dev/v1/")
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .client(okHttpClient)
         .build()

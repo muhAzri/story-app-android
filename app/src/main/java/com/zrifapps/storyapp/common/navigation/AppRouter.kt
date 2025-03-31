@@ -5,9 +5,9 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.zrifapps.storyapp.presentation.screens.auth.LoginScreen
-import com.zrifapps.storyapp.presentation.screens.auth.OnboardingScreen
-import com.zrifapps.storyapp.presentation.screens.auth.RegisterScreen
+import com.zrifapps.storyapp.presentation.screens.auth.login.LoginScreen
+import com.zrifapps.storyapp.presentation.screens.auth.onboarding.OnboardingScreen
+import com.zrifapps.storyapp.presentation.screens.auth.register.RegisterScreen
 
 @Composable
 fun AppRouter(
@@ -56,7 +56,6 @@ fun AppRouter(
                         clearBackStack = true
                     )
                 },
-                onRegisterSuccess = { }
             )
         }
     }

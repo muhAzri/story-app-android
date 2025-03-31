@@ -1,4 +1,4 @@
-package com.zrifapps.storyapp.presentation.screens.auth
+package com.zrifapps.storyapp.presentation.screens.auth.onboarding
 
 import androidx.annotation.DrawableRes
 import androidx.compose.animation.AnimatedContent

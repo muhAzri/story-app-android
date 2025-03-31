@@ -1,4 +1,4 @@
-package com.zrifapps.storyapp.presentation.screens.auth
+package com.zrifapps.storyapp.presentation.screens.auth.login
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
@@ -18,7 +18,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -42,29 +41,21 @@ import com.zrifapps.storyapp.presentation.components.button.CustomButton
 import com.zrifapps.storyapp.presentation.components.textfield.CustomTextField
 
 @Composable
-fun RegisterScreen(
-    onNavigateToLogin: () -> Unit,
-    onRegisterSuccess: () -> Unit,
+fun LoginScreen(
+    onNavigateToRegister: () -> Unit,
+    onLoginSuccess: () -> Unit,
 ) {
-    var name by remember { mutableStateOf("") }
-    var nameError by remember { mutableStateOf<String?>(null) }
     var email by remember { mutableStateOf("") }
     var emailError by remember { mutableStateOf<String?>(null) }
     var password by remember { mutableStateOf("") }
     var passwordError by remember { mutableStateOf<String?>(null) }
-    var confirmPassword by remember { mutableStateOf("") }
-    var confirmPasswordError by remember { mutableStateOf<String?>(null) }
     var isLoading by remember { mutableStateOf(false) }
     var showContent by remember { mutableStateOf(false) }
 
-    val nameErrorEmpty = stringResource(R.string.name_error_empty)
-    val emailErrorEmpty = stringResource(R.string.email_error_empty)
-    val emailErrorInvalid = stringResource(R.string.email_error_invalid)
-    val passwordErrorEmpty = stringResource(R.string.password_error_empty)
-    val passwordErrorInvalid = stringResource(R.string.password_error_invalid)
-    val confirmPasswordErrorEmpty = stringResource(R.string.confirm_password_error_empty)
-    val confirmPasswordErrorMismatch = stringResource(R.string.confirm_password_error_mismatch)
-
+    val emailErrorEmpty = stringResource(id = R.string.email_error_empty)
+    val emailErrorInvalid = stringResource(id = R.string.email_error_invalid)
+    val passwordErrorEmpty = stringResource(id = R.string.password_error_empty)
+    val passwordErrorInvalid = stringResource(id = R.string.password_error_invalid)
 
     LaunchedEffect(Unit) {
         showContent = true
@@ -73,12 +64,10 @@ fun RegisterScreen(
     val focusManager = LocalFocusManager.current
     val scrollState = rememberScrollState()
 
-    fun attemptRegister() {
-        if (nameError == null && emailError == null && passwordError == null && confirmPasswordError == null &&
-            name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && confirmPassword == password
-        ) {
+    fun attemptLogin() {
+        if (emailError == null && passwordError == null && email.isNotEmpty() && password.isNotEmpty()) {
             isLoading = true
-            onRegisterSuccess()
+            onLoginSuccess()
         }
     }
 
@@ -103,36 +92,15 @@ fun RegisterScreen(
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    stringResource(R.string.create_account),
+                    stringResource(id = R.string.welcome_back),
                     style = MaterialTheme.typography.headlineMedium
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    stringResource(R.string.sign_up_message),
+                    stringResource(id = R.string.sign_in_message),
                     style = MaterialTheme.typography.bodyLarge
                 )
                 Spacer(modifier = Modifier.height(36.dp))
-
-
-                CustomTextField(
-                    value = name,
-                    onValueChange = {
-                        name = it
-                        nameError = if (it.isEmpty()) nameErrorEmpty else null
-                    },
-                    label = stringResource(R.string.name_label),
-                    leadingIcon = Icons.Default.Person,
-                    keyboardOptions = KeyboardOptions(
-                        keyboardType = KeyboardType.Text,
-                        imeAction = ImeAction.Next
-                    ),
-                    keyboardActions = KeyboardActions(onNext = {
-                        focusManager.moveFocus(FocusDirection.Down)
-                    }),
-                    errorText = nameError
-                )
-
-                Spacer(modifier = Modifier.height(16.dp))
 
                 CustomTextField(
                     value = email,
@@ -144,7 +112,7 @@ fun RegisterScreen(
                             else -> null
                         }
                     },
-                    label = stringResource(R.string.email_label),
+                    label = stringResource(id = R.string.email_label),
                     leadingIcon = Icons.Default.Email,
                     keyboardOptions = KeyboardOptions(
                         keyboardType = KeyboardType.Email,
@@ -155,6 +123,7 @@ fun RegisterScreen(
                     }),
                     errorText = emailError
                 )
+
 
                 Spacer(modifier = Modifier.height(16.dp))
 
@@ -168,32 +137,7 @@ fun RegisterScreen(
                             else -> null
                         }
                     },
-                    label = stringResource(R.string.password_label),
-                    leadingIcon = Icons.Default.Lock,
-                    keyboardOptions = KeyboardOptions(
-                        keyboardType = KeyboardType.Password,
-                        imeAction = ImeAction.Next
-                    ),
-                    keyboardActions = KeyboardActions(onNext = {
-                        focusManager.moveFocus(FocusDirection.Down)
-                    }),
-                    errorText = passwordError,
-                    isPassword = true
-                )
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                CustomTextField(
-                    value = confirmPassword,
-                    onValueChange = {
-                        confirmPassword = it
-                        confirmPasswordError = when {
-                            it.isEmpty() -> confirmPasswordErrorEmpty
-                            it != password -> confirmPasswordErrorMismatch
-                            else -> null
-                        }
-                    },
-                    label = stringResource(R.string.confirm_password_label),
+                    label = stringResource(id = R.string.password_label),
                     leadingIcon = Icons.Default.Lock,
                     keyboardOptions = KeyboardOptions(
                         keyboardType = KeyboardType.Password,
@@ -201,28 +145,28 @@ fun RegisterScreen(
                     ),
                     keyboardActions = KeyboardActions(onDone = {
                         focusManager.clearFocus()
-                        attemptRegister()
+                        attemptLogin()
                     }),
-                    errorText = confirmPasswordError,
+                    errorText = passwordError,
                     isPassword = true
                 )
+
 
                 Spacer(modifier = Modifier.height(24.dp))
 
                 CustomButton(
-                    text = stringResource(R.string.register),
+                    text = stringResource(id = R.string.login),
                     isLoading = isLoading,
                     onClick = {
                         focusManager.clearFocus()
-                        attemptRegister()
+                        attemptLogin()
                     }
                 )
-
                 Spacer(modifier = Modifier.height(24.dp))
 
-                TextButton(onClick = onNavigateToLogin) {
+                TextButton(onClick = onNavigateToRegister) {
                     Text(
-                        stringResource(R.string.already_have_account),
+                        stringResource(id = R.string.register_prompt),
                         style = MaterialTheme.typography.bodyLarge
                     )
                 }
