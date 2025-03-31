@@ -46,4 +46,6 @@
 
     <string name="register">Register</string>
     <string name="already_have_account">Already have an account? Login</string>
+    <string name="login_succeed">Login Succeed</string>
+    <string name="register_succeed">Register Succeed, please log in</string>
 </resources>
