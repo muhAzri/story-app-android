@@ -72,7 +72,11 @@ fun AppRouter(
                 onLogout = {
                     sessionManager.clearSession()
                     navigateTo(AppRoutes.LoginRoute.route, clearBackStack = true)
+                },
+                onNavigateToHome = {
+                    navigateTo(AppRoutes.HomeRoute.route, clearBackStack = true)
                 }
+
             )
         }
     }

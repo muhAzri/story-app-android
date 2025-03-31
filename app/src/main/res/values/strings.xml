@@ -48,4 +48,8 @@
     <string name="already_have_account">Already have an account? Login</string>
     <string name="login_succeed">Login Succeed</string>
     <string name="register_succeed">Register Succeed, please log in</string>
+    <string name="logout_confirmation">Logout Confirmation</string>
+    <string name="logout_confirmation_desc">Are you sure you want to logout?</string>
+    <string name="home">Home</string>
+    <string name="logout">Logout</string>
 </resources>
