@@ -11,7 +11,7 @@ import com.zrifapps.storyapp.domain.auth.repository.AuthRepository
 import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
-    private val authApi: AuthApi
+    private val authApi: AuthApi,
 ) : BaseRepository(), AuthRepository {
 
     override suspend fun login(loginRequest: LoginRequest): NetworkResult<LoginResponse> {

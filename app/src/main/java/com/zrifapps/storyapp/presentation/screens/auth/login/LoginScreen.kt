@@ -116,7 +116,7 @@ fun LoginScreen(
             viewModel.register(
                 email,
                 password
-            ) // Note: This is calling the register function from viewModel
+            )
         }
     }
 

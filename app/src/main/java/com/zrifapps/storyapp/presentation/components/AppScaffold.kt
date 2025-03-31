@@ -50,10 +50,10 @@ fun AppScaffold(
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
-    // State for logout confirmation dialog
+
     val showLogoutDialog = remember { mutableStateOf(false) }
 
-    // Logout confirmation dialog
+
     if (showLogoutDialog.value) {
         AlertDialog(
             onDismissRequest = { showLogoutDialog.value = false },
@@ -83,7 +83,7 @@ fun AppScaffold(
         drawerState = drawerState,
         drawerContent = {
             ModalDrawerSheet {
-                // Drawer header
+
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -101,7 +101,7 @@ fun AppScaffold(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Home menu item
+
                 NavigationDrawerItem(
                     icon = { Icon(Icons.Default.Home, contentDescription = "Home") },
                     label = { Text(stringResource(R.string.home)) },
@@ -115,7 +115,7 @@ fun AppScaffold(
                     modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
                 )
 
-                // Logout menu item
+
                 NavigationDrawerItem(
                     icon = {
                         Icon(
@@ -128,7 +128,7 @@ fun AppScaffold(
                     onClick = {
                         scope.launch {
                             drawerState.close()
-                            // Show confirmation dialog instead of logging out immediately
+
                             showLogoutDialog.value = true
                         }
                     },

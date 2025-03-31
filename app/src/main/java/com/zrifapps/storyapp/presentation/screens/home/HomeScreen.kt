@@ -118,7 +118,7 @@ fun HomeScreen(
 
 @Composable
 fun StoryCard(story: Story) {
-    // StoryCard implementation remains the same
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -131,14 +131,12 @@ fun StoryCard(story: Story) {
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column {
-            // Author section
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(16.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                // Profile image
                 Box(
                     modifier = Modifier
                         .size(40.dp)
@@ -171,7 +169,7 @@ fun StoryCard(story: Story) {
                 }
             }
 
-            // Photo
+
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -190,7 +188,7 @@ fun StoryCard(story: Story) {
                 )
             }
 
-            // Description
+
             Column(
                 modifier = Modifier.padding(16.dp)
             ) {
