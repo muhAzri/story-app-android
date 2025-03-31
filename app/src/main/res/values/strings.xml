@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">StoryApp</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title_1">Discover Stories</string>
+    <string name="onboarding_desc_1">Explore a world of stories, shared by users from around the globe.</string>
+
+    <string name="onboarding_title_2">Share Your Story</string>
+    <string name="onboarding_desc_2">Capture your moments and share them with the community.</string>
+
+    <string name="onboarding_title_3">Connect with Others</string>
+    <string name="onboarding_desc_3">Like, comment, and connect with other storytellers in the community.</string>
+
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="get_started">Get Started</string>
+
+    <!-- Authentication -->
+    <string name="welcome_back">Welcome Back</string>
+    <string name="sign_in_message">Sign in to continue your journey</string>
+
+    <!-- Login -->
+    <string name="email_label">Email</string>
+    <string name="email_error_empty">Email cannot be empty</string>
+    <string name="email_error_invalid">Please enter a valid email</string>
+
+    <string name="password_label">Password</string>
+    <string name="password_error_empty">Password cannot be empty</string>
+    <string name="password_error_invalid">Password must be at least 8 characters</string>
+
+    <string name="login">Login</string>
+    <string name="register_prompt">Don\'t have an account? Register</string>
+
+    <!-- Registration -->
+    <string name="create_account">Create Account</string>
+    <string name="sign_up_message">Sign up to start your journey</string>
+
+    <string name="name_label">Name</string>
+    <string name="name_error_empty">Name cannot be empty</string>
+
+    <string name="confirm_password_label">Confirm Password</string>
+    <string name="confirm_password_error_empty">Please confirm your password</string>
+    <string name="confirm_password_error_mismatch">Passwords do not match</string>
+
+    <string name="register">Register</string>
+    <string name="already_have_account">Already have an account? Login</string>
+</resources>
