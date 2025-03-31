@@ -5,15 +5,18 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.zrifapps.storyapp.common.session.SessionManager
 import com.zrifapps.storyapp.presentation.screens.auth.login.LoginScreen
 import com.zrifapps.storyapp.presentation.screens.auth.onboarding.OnboardingScreen
 import com.zrifapps.storyapp.presentation.screens.auth.register.RegisterScreen
+import com.zrifapps.storyapp.presentation.screens.home.HomeScreen
 
 @Composable
 fun AppRouter(
     navController: NavHostController,
     modifier: Modifier = Modifier,
     startDestination: String,
+    sessionManager: SessionManager,
 ) {
     fun navigateTo(route: String, clearBackStack: Boolean = false) {
         navController.navigate(route) {
@@ -44,7 +47,12 @@ fun AppRouter(
                         clearBackStack = true
                     )
                 },
-                onLoginSuccess = {}
+                onLoginSuccess = {
+                    navigateTo(
+                        AppRoutes.HomeRoute.route,
+                        clearBackStack = true
+                    )
+                }
             )
         }
 
@@ -56,6 +64,15 @@ fun AppRouter(
                         clearBackStack = true
                     )
                 },
+            )
+        }
+
+        composable(AppRoutes.HomeRoute.route) {
+            HomeScreen(
+                onLogout = {
+                    sessionManager.clearSession()
+                    navigateTo(AppRoutes.LoginRoute.route, clearBackStack = true)
+                }
             )
         }
     }

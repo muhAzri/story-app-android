@@ -43,7 +43,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.zrifapps.storyapp.R
-import com.zrifapps.storyapp.common.util.ValidationUtil
+import com.zrifapps.storyapp.common.util.ValidationUtils
 import com.zrifapps.storyapp.presentation.components.button.CustomButton
 import com.zrifapps.storyapp.presentation.components.textfield.CustomTextField
 import kotlinx.coroutines.delay
@@ -99,12 +99,12 @@ fun LoginScreen(
     fun validateFields(): Boolean {
         emailError = when {
             email.isEmpty() -> emailErrorEmpty
-            !ValidationUtil.validateEmail(email) -> emailErrorInvalid
+            !ValidationUtils.validateEmail(email) -> emailErrorInvalid
             else -> null
         }
         passwordError = when {
             password.isEmpty() -> passwordErrorEmpty
-            !ValidationUtil.validatePassword(password) -> passwordErrorInvalid
+            !ValidationUtils.validatePassword(password) -> passwordErrorInvalid
             else -> null
         }
 
@@ -159,7 +159,7 @@ fun LoginScreen(
                             email = it
                             emailError = when {
                                 it.isEmpty() -> emailErrorEmpty
-                                !ValidationUtil.validateEmail(it) -> emailErrorInvalid
+                                !ValidationUtils.validateEmail(it) -> emailErrorInvalid
                                 else -> null
                             }
                         },
@@ -183,7 +183,7 @@ fun LoginScreen(
                             password = it
                             passwordError = when {
                                 it.isEmpty() -> passwordErrorEmpty
-                                !ValidationUtil.validatePassword(it) -> passwordErrorInvalid
+                                !ValidationUtils.validatePassword(it) -> passwordErrorInvalid
                                 else -> null
                             }
                         },

@@ -33,7 +33,8 @@ class MainActivity : ComponentActivity() {
             StoryAppTheme {
                 AppRouter(
                     navController = rememberNavController(),
-                    startDestination = startDestination
+                    startDestination = startDestination,
+                    sessionManager = sessionManager
                 )
             }
         }
