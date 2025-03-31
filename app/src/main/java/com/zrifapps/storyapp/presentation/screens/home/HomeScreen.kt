@@ -37,17 +37,9 @@ import coil3.compose.AsyncImage
 import coil3.request.ImageRequest
 import coil3.request.crossfade
 import com.zrifapps.storyapp.common.util.FormatterUtils
+import com.zrifapps.storyapp.domain.story.entity.Story
 import com.zrifapps.storyapp.presentation.components.AppScaffold
 
-data class Story(
-    val id: String,
-    val name: String,
-    val description: String,
-    val photoUrl: String,
-    val createdAt: String,
-    val lat: Double,
-    val lon: Double,
-)
 
 @Composable
 fun HomeScreen(
