@@ -3,7 +3,6 @@ package com.zrifapps.storyapp.di
 import android.content.Context
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import com.zrifapps.storyapp.common.adapter.BaseResponseAdapter
 import com.zrifapps.storyapp.common.interceptor.AuthInterceptor
 import com.zrifapps.storyapp.common.session.SessionManager
 import dagger.Module
@@ -30,7 +29,6 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideMoshi(): Moshi = Moshi.Builder()
-        .add(BaseResponseAdapter())
         .add(KotlinJsonAdapterFactory())
         .build()
 

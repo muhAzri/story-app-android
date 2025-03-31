@@ -7,33 +7,18 @@ import java.io.IOException
 abstract class BaseRepository {
 
     protected suspend fun <T> safeApiCall(
-        apiCall: suspend () -> Response<BaseResponse>,
+        apiCall: suspend () -> Response<T>,
     ): NetworkResult<T> {
         return try {
             val response = apiCall()
             val body = response.body()
 
             if (response.isSuccessful && body != null) {
-                if (body.error == false) {
-                    // Extract the first key from `extraData`
-                    val extractedData: Any? = body.extraData.values.firstOrNull()
-
-                    if (extractedData != null) {
-                        @Suppress("UNCHECKED_CAST")
-                        NetworkResult.Success(extractedData as T)
-                    } else {
-                        NetworkResult.EmptySuccess
-                    }
-                } else {
-                    NetworkResult.Error(
-                        error = true,
-                        message = body.message ?: "Unknown API error"
-                    )
-                }
+                NetworkResult.Success(body)
             } else {
                 NetworkResult.Error(
                     error = true,
-                    message = body?.message ?: response.message()
+                    message = response.message()
                 )
             }
         } catch (e: HttpException) {
