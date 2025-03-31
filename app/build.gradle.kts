@@ -73,4 +73,10 @@ dependencies {
     //Retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.moshi)
+
+    implementation(platform(libs.okhttp.bom))
+
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
+
 }
