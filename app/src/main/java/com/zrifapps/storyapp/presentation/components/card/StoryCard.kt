@@ -24,6 +24,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -96,10 +97,8 @@ fun StoryCard(
                     .height(200.dp)
             ) {
                 AsyncImage(
-                    model = ImageRequest.Builder(LocalContext.current)
-                        .data(story.photoUrl)
-                        .crossfade(true)
-                        .build(),
+                    model = ImageRequest.Builder(LocalContext.current).data(story.photoUrl)
+                        .crossfade(true).build(),
                     contentDescription = "Story image",
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
@@ -115,7 +114,7 @@ fun StoryCard(
                 modifier = Modifier.padding(16.dp)
             ) {
                 Text(
-                    text = "Dicoding",
+                    text = stringResource(R.string.description_label),
                     style = MaterialTheme.typography.titleSmall,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.primary

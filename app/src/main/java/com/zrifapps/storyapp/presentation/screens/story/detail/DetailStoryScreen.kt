@@ -260,6 +260,15 @@ fun StoryDetailScreen(
                                 }
                             }
 
+                            Spacer(modifier = Modifier.height(16.dp))
+
+                            Text(
+                                text = stringResource(R.string.description_label),
+                                style = MaterialTheme.typography.titleSmall,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.primary
+                            )
+
                             Spacer(modifier = Modifier.height(8.dp))
 
                             Text(

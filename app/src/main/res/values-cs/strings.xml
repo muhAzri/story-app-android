@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Název aplikace -->
+    <string name="app_name">StoryApp</string>
+
+    <!-- Úvodní obrazovka -->
+    <string name="onboarding_title_1">Objevujte příběhy</string>
+    <string name="onboarding_desc_1">Prozkoumejte svět příběhů sdílených uživateli z celého světa.</string>
+
+    <string name="onboarding_title_2">Sdílejte svůj příběh</string>
+    <string name="onboarding_desc_2">Zachyťte své okamžiky a sdílejte je s komunitou.</string>
+
+    <string name="onboarding_title_3">Spojte se s ostatními</string>
+    <string name="onboarding_desc_3">Lajkujte, komentujte a propojte se s dalšími vypravěči v komunitě.</string>
+
+    <string name="skip">Přeskočit</string>
+    <string name="next">Další</string>
+    <string name="get_started">Začít</string>
+
+    <!-- Autentizace -->
+    <string name="welcome_back">Vítejte zpět</string>
+    <string name="sign_in_message">Přihlaste se a pokračujte ve své cestě</string>
+
+    <!-- Přihlášení -->
+    <string name="email_label">E-mail</string>
+    <string name="email_error_empty">E-mail nesmí být prázdný</string>
+    <string name="email_error_invalid">Zadejte platný e-mail</string>
+
+    <string name="password_label">Heslo</string>
+    <string name="password_error_empty">Heslo nesmí být prázdné</string>
+    <string name="password_error_invalid">Heslo musí mít alespoň 8 znaků</string>
+
+    <string name="login">Přihlásit se</string>
+    <string name="register_prompt">Nemáte účet? Zaregistrujte se</string>
+
+    <!-- Registrace -->
+    <string name="create_account">Vytvořit účet</string>
+    <string name="sign_up_message">Zaregistrujte se a začněte svou cestu</string>
+
+    <string name="name_label">Jméno</string>
+    <string name="name_error_empty">Jméno nesmí být prázdné</string>
+
+    <string name="confirm_password_label">Potvrdit heslo</string>
+    <string name="confirm_password_error_empty">Potvrďte své heslo</string>
+    <string name="confirm_password_error_mismatch">Hesla se neshodují</string>
+
+    <string name="register">Registrovat</string>
+    <string name="already_have_account">Máte již účet? Přihlaste se</string>
+
+    <!-- Úspěšné zprávy & potvrzení -->
+    <string name="login_succeed">Přihlášení úspěšné</string>
+    <string name="register_succeed">Registrace úspěšná, přihlaste se</string>
+    <string name="logout_confirmation">Potvrzení odhlášení</string>
+    <string name="logout_confirmation_desc">Opravdu se chcete odhlásit?</string>
+
+    <!-- Navigace -->
+    <string name="home">Domů</string>
+    <string name="logout">Odhlásit se</string>
+    <string name="back">Zpět</string>
+
+    <!-- Poloha & Sdílení -->
+    <string name="location_information_is_unavailable">Informace o poloze nejsou dostupné</string>
+    <string name="unable_to_open_the_map">Nelze otevřít mapu</string>
+    <string name="share_story_message">Podívejte se na tento příběh od %1$s:</string>
+    <string name="share_story_description">%1$s</string>
+    <string name="shared_from_app">Sdíleno z aplikace Dicoding Story App</string>
+    <string name="share_story_chooser_title">Sdílet příběh přes</string>
+
+    <!-- Vytvoření příběhu -->
+    <string name="create_story_title">Vytvořit příběh</string>
+    <string name="no_photo_selected">Žádná fotka nebyla vybrána</string>
+    <string name="photo_required">Vyberte prosím fotografii</string>
+    <string name="camera">Fotoaparát</string>
+    <string name="gallery">Galerie</string>
+    <string name="take_photo">Pořídit fotografii</string>
+    <string name="choose_from_gallery">Vybrat z galerie</string>
+
+    <string name="description_label">Popis</string>
+    <string name="description_placeholder">Zadejte popis příběhu…</string>
+    <string name="description_error">Popis nesmí být prázdný</string>
+
+    <string name="submit_story">ODESLAT PŘÍBĚH</string>
+    <string name="selected_photo">Vybraná fotka</string>
+    <string name="camera_permission_required">K použití fotoaparátu je nutné povolení</string>
+
+    <!-- Detail příběhu -->
+    <string name="story_detail">Detail příběhu</string>
+    <string name="something_went_wrong">Něco se pokazilo!</string>
+    <string name="fetching_location">Získávání polohy…</string>
+</resources>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Nama Aplikasi -->
+    <string name="app_name">StoryApp</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title_1">Temukan Cerita</string>
+    <string name="onboarding_desc_1">Jelajahi dunia cerita yang dibagikan oleh pengguna dari seluruh dunia.</string>
+
+    <string name="onboarding_title_2">Bagikan Ceritamu</string>
+    <string name="onboarding_desc_2">Abadikan momenmu dan bagikan dengan komunitas.</string>
+
+    <string name="onboarding_title_3">Terhubung dengan Orang Lain</string>
+    <string name="onboarding_desc_3">Sukai, komentari, dan terhubung dengan pencerita lain di komunitas.</string>
+
+    <string name="skip">Lewati</string>
+    <string name="next">Selanjutnya</string>
+    <string name="get_started">Mulai</string>
+
+    <!-- Autentikasi -->
+    <string name="welcome_back">Selamat Datang Kembali</string>
+    <string name="sign_in_message">Masuk untuk melanjutkan perjalananmu</string>
+
+    <!-- Login -->
+    <string name="email_label">Email</string>
+    <string name="email_error_empty">Email tidak boleh kosong</string>
+    <string name="email_error_invalid">Masukkan email yang valid</string>
+
+    <string name="password_label">Kata Sandi</string>
+    <string name="password_error_empty">Kata sandi tidak boleh kosong</string>
+    <string name="password_error_invalid">Kata sandi harus memiliki setidaknya 8 karakter</string>
+
+    <string name="login">Masuk</string>
+    <string name="register_prompt">Belum punya akun? Daftar</string>
+
+    <!-- Pendaftaran -->
+    <string name="create_account">Buat Akun</string>
+    <string name="sign_up_message">Daftar untuk memulai perjalananmu</string>
+
+    <string name="name_label">Nama</string>
+    <string name="name_error_empty">Nama tidak boleh kosong</string>
+
+    <string name="confirm_password_label">Konfirmasi Kata Sandi</string>
+    <string name="confirm_password_error_empty">Harap konfirmasi kata sandimu</string>
+    <string name="confirm_password_error_mismatch">Kata sandi tidak cocok</string>
+
+    <string name="register">Daftar</string>
+    <string name="already_have_account">Sudah punya akun? Masuk</string>
+
+    <!-- Pesan Keberhasilan & Konfirmasi -->
+    <string name="login_succeed">Berhasil Masuk</string>
+    <string name="register_succeed">Berhasil Daftar, silakan masuk</string>
+    <string name="logout_confirmation">Konfirmasi Logout</string>
+    <string name="logout_confirmation_desc">Apakah kamu yakin ingin keluar?</string>
+
+    <!-- Navigasi -->
+    <string name="home">Beranda</string>
+    <string name="logout">Keluar</string>
+    <string name="back">Kembali</string>
+
+    <!-- Lokasi & Berbagi -->
+    <string name="location_information_is_unavailable">Informasi lokasi tidak tersedia</string>
+    <string name="unable_to_open_the_map">Tidak dapat membuka peta</string>
+    <string name="share_story_message">Lihat cerita ini dari %1$s:</string>
+    <string name="share_story_description">%1$s</string>
+    <string name="shared_from_app">Dibagikan dari Dicoding Story App</string>
+    <string name="share_story_chooser_title">Bagikan cerita melalui</string>
+
+    <!-- Pembuatan Cerita -->
+    <string name="create_story_title">Buat Cerita</string>
+    <string name="no_photo_selected">Tidak ada foto yang dipilih</string>
+    <string name="photo_required">Harap pilih foto</string>
+    <string name="camera">Kamera</string>
+    <string name="gallery">Galeri</string>
+    <string name="take_photo">Ambil foto</string>
+    <string name="choose_from_gallery">Pilih dari galeri</string>
+
+    <string name="description_label">Deskripsi</string>
+    <string name="description_placeholder">Masukkan deskripsi cerita…</string>
+    <string name="description_error">Deskripsi tidak boleh kosong</string>
+
+    <string name="submit_story">KIRIM CERITA</string>
+    <string name="selected_photo">Foto yang dipilih</string>
+    <string name="camera_permission_required">Izin kamera diperlukan untuk mengambil foto</string>
+
+    <!-- Detail Cerita -->
+    <string name="story_detail">Detail Cerita</string>
+    <string name="something_went_wrong">Terjadi kesalahan!</string>
+    <string name="fetching_location">Mengambil lokasi…</string>
+</resources>

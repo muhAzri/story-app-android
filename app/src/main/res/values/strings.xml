@@ -46,36 +46,45 @@
 
     <string name="register">Register</string>
     <string name="already_have_account">Already have an account? Login</string>
+
+    <!-- Success & Confirmation Messages -->
     <string name="login_succeed">Login Succeed</string>
     <string name="register_succeed">Register Succeed, please log in</string>
     <string name="logout_confirmation">Logout Confirmation</string>
     <string name="logout_confirmation_desc">Are you sure you want to logout?</string>
+
+    <!-- Navigation -->
     <string name="home">Home</string>
     <string name="logout">Logout</string>
+    <string name="back">Back</string>
+
+    <!-- Location & Sharing -->
     <string name="location_information_is_unavailable">Location information is unavailable</string>
     <string name="unable_to_open_the_map">Unable to open the map</string>
     <string name="share_story_message">Check out this story from %1$s:</string>
-    <string name="share_story_description">%1$s</string> <!-- Only one placeholder for description -->
+    <string name="share_story_description">%1$s</string>
     <string name="shared_from_app">Shared from Dicoding Story App</string>
     <string name="share_story_chooser_title">Share story via</string>
 
-
+    <!-- Story Creation -->
     <string name="create_story_title">Create Story</string>
-    <string name="back">Back</string>
     <string name="no_photo_selected">No photo selected</string>
     <string name="photo_required">Please select a photo</string>
     <string name="camera">Camera</string>
     <string name="gallery">Gallery</string>
     <string name="take_photo">Take photo</string>
     <string name="choose_from_gallery">Choose from gallery</string>
+
     <string name="description_label">Description</string>
     <string name="description_placeholder">Enter story description…</string>
     <string name="description_error">Description cannot be empty</string>
+
     <string name="submit_story">SUBMIT STORY</string>
     <string name="selected_photo">Selected photo</string>
     <string name="camera_permission_required">Camera permission is required to take photos</string>
+
+    <!-- Story Details -->
     <string name="story_detail">Story Detail</string>
     <string name="something_went_wrong">Something went wrong!</string>
     <string name="fetching_location">Fetching location…</string>
-
 </resources>

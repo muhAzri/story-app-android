@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Név -->
+    <string name="app_name">StoryApp</string>
+
+    <!-- Bevezető -->
+    <string name="onboarding_title_1">Fedezd fel a történeteket</string>
+    <string name="onboarding_desc_1">Fedezz fel egy világot, ahol a felhasználók megosztják történeteiket.</string>
+
+    <string name="onboarding_title_2">Oszd meg a történeted</string>
+    <string name="onboarding_desc_2">Ragadd meg a pillanatokat és oszd meg a közösséggel.</string>
+
+    <string name="onboarding_title_3">Kapcsolódj másokhoz</string>
+    <string name="onboarding_desc_3">Lájkold, kommentáld és lépj kapcsolatba más történetmesélőkkel.</string>
+
+    <string name="skip">Kihagyás</string>
+    <string name="next">Tovább</string>
+    <string name="get_started">Kezdjük</string>
+
+    <!-- Hitelesítés -->
+    <string name="welcome_back">Üdv újra</string>
+    <string name="sign_in_message">Jelentkezz be, hogy folytathasd az utadat</string>
+
+    <!-- Bejelentkezés -->
+    <string name="email_label">E-mail</string>
+    <string name="email_error_empty">Az e-mail nem lehet üres</string>
+    <string name="email_error_invalid">Kérlek, adj meg érvényes e-mail címet</string>
+
+    <string name="password_label">Jelszó</string>
+    <string name="password_error_empty">A jelszó nem lehet üres</string>
+    <string name="password_error_invalid">A jelszó legalább 8 karakter hosszú kell legyen</string>
+
+    <string name="login">Bejelentkezés</string>
+    <string name="register_prompt">Még nincs fiókod? Regisztrálj</string>
+
+    <!-- Regisztráció -->
+    <string name="create_account">Fiók létrehozása</string>
+    <string name="sign_up_message">Regisztrálj, hogy elindulhass az utadon</string>
+
+    <string name="name_label">Név</string>
+    <string name="name_error_empty">A név nem lehet üres</string>
+
+    <string name="confirm_password_label">Jelszó megerősítése</string>
+    <string name="confirm_password_error_empty">Kérlek, erősítsd meg a jelszavad</string>
+    <string name="confirm_password_error_mismatch">A jelszavak nem egyeznek</string>
+
+    <string name="register">Regisztráció</string>
+    <string name="already_have_account">Már van fiókod? Jelentkezz be</string>
+
+    <!-- Sikerülesetek & megerősítések -->
+    <string name="login_succeed">Sikeres bejelentkezés</string>
+    <string name="register_succeed">Sikeres regisztráció, kérlek jelentkezz be</string>
+    <string name="logout_confirmation">Kijelentkezési megerősítés</string>
+    <string name="logout_confirmation_desc">Biztosan ki szeretnél jelentkezni?</string>
+
+    <!-- Navigáció -->
+    <string name="home">Kezdőlap</string>
+    <string name="logout">Kijelentkezés</string>
+    <string name="back">Vissza</string>
+
+    <!-- Helymeghatározás & megosztás -->
+    <string name="location_information_is_unavailable">A helyinformáció nem elérhető</string>
+    <string name="unable_to_open_the_map">Nem lehet megnyitni a térképet</string>
+    <string name="share_story_message">Nézd meg ezt a történetet %1$s-tól:</string>
+    <string name="share_story_description">%1$s</string>
+    <string name="shared_from_app">Megosztva a Dicoding Story App-ból</string>
+    <string name="share_story_chooser_title">Történet megosztása</string>
+
+    <!-- Történet létrehozása -->
+    <string name="create_story_title">Történet létrehozása</string>
+    <string name="no_photo_selected">Nincs kiválasztott fotó</string>
+    <string name="photo_required">Kérlek, válassz egy fotót</string>
+    <string name="camera">Kamera</string>
+    <string name="gallery">Galéria</string>
+    <string name="take_photo">Fotó készítése</string>
+    <string name="choose_from_gallery">Választás a galériából</string>
+
+    <string name="description_label">Leírás</string>
+    <string name="description_placeholder">Adj meg egy történetleírást…</string>
+    <string name="description_error">A leírás nem lehet üres</string>
+
+    <string name="submit_story">TÖRTÉNET BEKÜLDÉSE</string>
+    <string name="selected_photo">Kiválasztott fotó</string>
+    <string name="camera_permission_required">A kamera engedélyezése szükséges a fotók készítéséhez</string>
+
+    <!-- Történet részletei -->
+    <string name="story_detail">Történet részletei</string>
+    <string name="something_went_wrong">Valami hiba történt!</string>
+    <string name="fetching_location">Helyzet meghatározása…</string>
+</resources>

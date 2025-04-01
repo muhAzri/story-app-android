@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- アプリ名 -->
+    <string name="app_name">StoryApp</string>
+
+    <!-- オンボーディング -->
+    <string name="onboarding_title_1">ストーリーを発見</string>
+    <string name="onboarding_desc_1">世界中のユーザーが共有するストーリーを探索しましょう。</string>
+
+    <string name="onboarding_title_2">あなたのストーリーを共有</string>
+    <string name="onboarding_desc_2">あなたの瞬間をキャプチャし、コミュニティと共有しましょう。</string>
+
+    <string name="onboarding_title_3">他のユーザーとつながる</string>
+    <string name="onboarding_desc_3">いいね、コメント、他のストーリーテラーとつながりましょう。</string>
+
+    <string name="skip">スキップ</string>
+    <string name="next">次へ</string>
+    <string name="get_started">始める</string>
+
+    <!-- 認証 -->
+    <string name="welcome_back">お帰りなさい</string>
+    <string name="sign_in_message">サインインして旅を続けましょう</string>
+
+    <!-- ログイン -->
+    <string name="email_label">メールアドレス</string>
+    <string name="email_error_empty">メールアドレスを入力してください</string>
+    <string name="email_error_invalid">有効なメールアドレスを入力してください</string>
+
+    <string name="password_label">パスワード</string>
+    <string name="password_error_empty">パスワードを入力してください</string>
+    <string name="password_error_invalid">パスワードは8文字以上で入力してください</string>
+
+    <string name="login">ログイン</string>
+    <string name="register_prompt">アカウントをお持ちでないですか？登録</string>
+
+    <!-- 登録 -->
+    <string name="create_account">アカウントを作成</string>
+    <string name="sign_up_message">登録して旅を始めましょう</string>
+
+    <string name="name_label">名前</string>
+    <string name="name_error_empty">名前を入力してください</string>
+
+    <string name="confirm_password_label">パスワードの確認</string>
+    <string name="confirm_password_error_empty">パスワードを確認してください</string>
+    <string name="confirm_password_error_mismatch">パスワードが一致しません</string>
+
+    <string name="register">登録</string>
+    <string name="already_have_account">すでにアカウントをお持ちですか？ログイン</string>
+
+    <!-- 成功 & 確認 -->
+    <string name="login_succeed">ログイン成功</string>
+    <string name="register_succeed">登録成功しました。ログインしてください</string>
+    <string name="logout_confirmation">ログアウト確認</string>
+    <string name="logout_confirmation_desc">本当にログアウトしますか？</string>
+
+    <!-- ナビゲーション -->
+    <string name="home">ホーム</string>
+    <string name="logout">ログアウト</string>
+    <string name="back">戻る</string>
+
+    <!-- 位置情報 & 共有 -->
+    <string name="location_information_is_unavailable">位置情報が利用できません</string>
+    <string name="unable_to_open_the_map">地図を開くことができません</string>
+    <string name="share_story_message">%1$s のストーリーをチェック：</string>
+    <string name="share_story_description">%1$s</string>
+    <string name="shared_from_app">Dicoding Story App から共有</string>
+    <string name="share_story_chooser_title">ストーリーを共有</string>
+
+    <!-- ストーリー作成 -->
+    <string name="create_story_title">ストーリーを作成</string>
+    <string name="no_photo_selected">写真が選択されていません</string>
+    <string name="photo_required">写真を選択してください</string>
+    <string name="camera">カメラ</string>
+    <string name="gallery">ギャラリー</string>
+    <string name="take_photo">写真を撮る</string>
+    <string name="choose_from_gallery">ギャラリーから選択</string>
+
+    <string name="description_label">説明</string>
+    <string name="description_placeholder">ストーリーの説明を入力してください…</string>
+    <string name="description_error">説明を入力してください</string>
+
+    <string name="submit_story">ストーリーを投稿</string>
+    <string name="selected_photo">選択した写真</string>
+    <string name="camera_permission_required">写真を撮るにはカメラの許可が必要です</string>
+
+    <!-- ストーリー詳細 -->
+    <string name="story_detail">ストーリーの詳細</string>
+    <string name="something_went_wrong">問題が発生しました！</string>
+    <string name="fetching_location">位置情報を取得中…</string>
+</resources>
