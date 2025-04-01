@@ -10,6 +10,7 @@ import com.zrifapps.storyapp.presentation.screens.auth.login.LoginScreen
 import com.zrifapps.storyapp.presentation.screens.auth.onboarding.OnboardingScreen
 import com.zrifapps.storyapp.presentation.screens.auth.register.RegisterScreen
 import com.zrifapps.storyapp.presentation.screens.home.HomeScreen
+import com.zrifapps.storyapp.presentation.screens.story.create.CreateStoryScreen
 import com.zrifapps.storyapp.presentation.screens.story.detail.StoryDetailScreen
 
 @Composable
@@ -80,13 +81,23 @@ fun AppRouter(
                 onNavigateToStoryDetail = { storyId ->
                     navigateTo(AppRoutes.StoryRoute.createRoute(storyId))
                 },
-                onNavigateToAddStory = {},
+                onNavigateToAddStory = {
+                    navigateTo(AppRoutes.CreateStoryRoute.route)
+                },
             )
         }
 
         composable(AppRoutes.StoryRoute.route) { backStackEntry ->
             val storyId = backStackEntry.arguments?.getString("storyId") ?: return@composable
             StoryDetailScreen(storyId = storyId, onNavigateBack = { navController.popBackStack() })
+        }
+
+        composable(AppRoutes.CreateStoryRoute.route) {
+            CreateStoryScreen(
+                onNavigateBack = {
+                    navController.popBackStack()
+                },
+            )
         }
     }
 }

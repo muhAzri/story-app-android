@@ -8,4 +8,6 @@ sealed class AppRoutes(val route: String) {
     data object StoryRoute : AppRoutes(route = "storyDetail/{storyId}") {
         fun createRoute(storyId: String) = "storyDetail/$storyId"
     }
+
+    data object CreateStoryRoute : AppRoutes(route = "createStory")
 }

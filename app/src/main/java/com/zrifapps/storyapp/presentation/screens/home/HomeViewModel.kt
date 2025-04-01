@@ -29,9 +29,6 @@ class HomeViewModel @Inject constructor(
     private var currentPage = 1
     private var isLastPage = false
 
-    init {
-        getStories(false)
-    }
 
     fun onEvent(event: HomeEvent) {
         when (event) {
@@ -61,7 +58,7 @@ class HomeViewModel @Inject constructor(
 
     private fun getStories(loadMore: Boolean) {
         viewModelScope.launch {
-            // If refreshing, reset page count
+
             if (!loadMore) {
                 state = state.copy(isLoading = true, error = null)
                 currentPage = 1

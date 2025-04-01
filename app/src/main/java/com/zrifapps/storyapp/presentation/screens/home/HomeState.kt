@@ -6,5 +6,5 @@ data class HomeState(
     val stories: List<Story> = emptyList(),
     val isLoading: Boolean = false,
     val isLoadingMore: Boolean = false,
-    val error: String? = null
+    val error: String? = null,
 )

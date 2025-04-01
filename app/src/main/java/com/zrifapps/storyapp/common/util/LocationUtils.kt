@@ -53,7 +53,7 @@ object LocationUtils {
         }
     }
 
-    // Suppressing deprecation because we handle the new Geocoder API for API 33+ separately.
+
     @Suppress("DEPRECATION")
     private fun getAddressFromLatLngOld(context: Context, lat: Double, lon: Double): String {
         val geocoder = Geocoder(context, Locale.getDefault())

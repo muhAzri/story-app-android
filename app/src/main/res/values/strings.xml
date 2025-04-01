@@ -59,4 +59,23 @@
     <string name="shared_from_app">Shared from Dicoding Story App</string>
     <string name="share_story_chooser_title">Share story via</string>
 
+
+    <string name="create_story_title">Create Story</string>
+    <string name="back">Back</string>
+    <string name="no_photo_selected">No photo selected</string>
+    <string name="photo_required">Please select a photo</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="take_photo">Take photo</string>
+    <string name="choose_from_gallery">Choose from gallery</string>
+    <string name="description_label">Description</string>
+    <string name="description_placeholder">Enter story description…</string>
+    <string name="description_error">Description cannot be empty</string>
+    <string name="submit_story">SUBMIT STORY</string>
+    <string name="selected_photo">Selected photo</string>
+    <string name="camera_permission_required">Camera permission is required to take photos</string>
+    <string name="story_detail">Story Detail</string>
+    <string name="something_went_wrong">Something went wrong!</string>
+    <string name="fetching_location">Fetching location…</string>
+
 </resources>

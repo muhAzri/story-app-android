@@ -57,6 +57,10 @@ fun HomeScreen(
         }
     }
 
+    LaunchedEffect(Unit) {
+        viewModel.onEvent(HomeEvent.RefreshStories)
+    }
+
     LaunchedEffect(shouldLoadMore.value) {
         if (shouldLoadMore.value) {
             viewModel.onEvent(HomeEvent.LoadMoreStories)

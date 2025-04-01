@@ -47,6 +47,7 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -97,7 +98,7 @@ fun StoryDetailScreen(
     Scaffold(modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
         topBar = {
-            TopAppBar(title = { Text("Story Detail") }, navigationIcon = {
+            TopAppBar(title = { Text(stringResource(R.string.story_detail)) }, navigationIcon = {
                 IconButton(onClick = { onNavigateBack() }) {
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.ArrowBack,
@@ -106,7 +107,6 @@ fun StoryDetailScreen(
                 }
             }, actions = {
                 IconButton(onClick = {
-                    // Share the story
                     viewModel.onEvent(StoryDetailEvent.ShareStory)
                 }) {
                     Icon(
@@ -125,7 +125,7 @@ fun StoryDetailScreen(
             if (state.story?.lat != null && state.story.lon != null) {
                 FloatingActionButton(
                     onClick = { viewModel.onEvent(StoryDetailEvent.OpenMap) },
-                    containerColor = MaterialTheme.colorScheme.secondary
+                    containerColor = MaterialTheme.colorScheme.primary
                 ) {
                     Icon(
                         imageVector = Icons.Default.LocationOn,
@@ -153,7 +153,7 @@ fun StoryDetailScreen(
                     verticalArrangement = Arrangement.Center
                 ) {
                     Text(
-                        text = "Something went wrong!",
+                        text = stringResource(R.string.something_went_wrong),
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Bold
                     )
@@ -188,7 +188,6 @@ fun StoryDetailScreen(
                         )
 
 
-                        // Gradient overlay for better text readability
                         Box(
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -261,15 +260,6 @@ fun StoryDetailScreen(
                                 }
                             }
 
-                            Spacer(modifier = Modifier.height(16.dp))
-
-                            Text(
-                                text = "Dicoding",
-                                style = MaterialTheme.typography.titleSmall,
-                                fontWeight = FontWeight.Bold,
-                                color = MaterialTheme.colorScheme.primary
-                            )
-
                             Spacer(modifier = Modifier.height(8.dp))
 
                             Text(
@@ -293,7 +283,8 @@ fun StoryDetailScreen(
                                     Spacer(modifier = Modifier.width(4.dp))
 
                                     Text(
-                                        text = address ?: "Fetching location...",
+                                        text = address
+                                            ?: stringResource(R.string.fetching_location),
                                         style = MaterialTheme.typography.bodyMedium,
                                         color = MaterialTheme.colorScheme.primary
                                     )
