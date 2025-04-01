@@ -105,8 +105,8 @@ fun StoryCard(
                     modifier = Modifier
                         .height(200.dp)
                         .fillMaxWidth(),
-                    error = painterResource(id = R.drawable.image_placeholder), // Show this image on error
-                    placeholder = painterResource(id = R.drawable.image_placeholder) // Show while loading
+                    error = painterResource(id = R.drawable.image_placeholder),
+                    placeholder = painterResource(id = R.drawable.image_placeholder)
                 )
 
             }

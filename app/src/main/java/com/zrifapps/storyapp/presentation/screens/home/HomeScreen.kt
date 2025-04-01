@@ -47,7 +47,6 @@ fun HomeScreen(
     val snackbarHostState = remember { SnackbarHostState() }
     val listState = rememberLazyListState()
 
-    // Detect when we're near the end of the list to load more
     val shouldLoadMore = remember {
         derivedStateOf {
             val layoutInfo = listState.layoutInfo
@@ -58,14 +57,12 @@ fun HomeScreen(
         }
     }
 
-    // Load more when needed
     LaunchedEffect(shouldLoadMore.value) {
         if (shouldLoadMore.value) {
             viewModel.onEvent(HomeEvent.LoadMoreStories)
         }
     }
 
-    // Collect UI events
     LaunchedEffect(key1 = true) {
         viewModel.eventFlow.collectLatest { event ->
             when (event) {

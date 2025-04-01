@@ -52,4 +52,11 @@
     <string name="logout_confirmation_desc">Are you sure you want to logout?</string>
     <string name="home">Home</string>
     <string name="logout">Logout</string>
+    <string name="location_information_is_unavailable">Location information is unavailable</string>
+    <string name="unable_to_open_the_map">Unable to open the map</string>
+    <string name="share_story_message">Check out this story from %1$s:</string>
+    <string name="share_story_description">%1$s</string> <!-- Only one placeholder for description -->
+    <string name="shared_from_app">Shared from Dicoding Story App</string>
+    <string name="share_story_chooser_title">Share story via</string>
+
 </resources>
