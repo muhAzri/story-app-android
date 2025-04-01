@@ -75,8 +75,9 @@ fun AppRouter(
                 },
                 onNavigateToHome = {
                     navigateTo(AppRoutes.HomeRoute.route, clearBackStack = true)
-                }
-
+                },
+                onNavigateToStoryDetail = { },
+                onNavigateToAddStory = {},
             )
         }
     }

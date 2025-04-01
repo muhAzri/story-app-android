@@ -6,6 +6,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface StoryApi {
-    @GET("/stories")
+    @GET("stories")
     suspend fun stories(@Query("page") page: Int): Response<StoriesResponse>
 }
