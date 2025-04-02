@@ -19,7 +19,7 @@ class StoryRepositoryImpl @Inject constructor(
 ) : BaseRepository(), StoryRepository {
 
     override suspend fun stories(getStoryRequest: GetStoryRequest): NetworkResult<StoriesResponse> {
-        return safeApiCall { storyApi.stories(getStoryRequest.page) }
+        return safeApiCall { storyApi.stories(getStoryRequest.page, getStoryRequest.location) }
     }
 
     override suspend fun getStoryById(id: String): NetworkResult<StoryDetailResponse> {
@@ -30,8 +30,8 @@ class StoryRepositoryImpl @Inject constructor(
         createStoryRequest: CreateStoryRequest,
         photo: MultipartBody.Part,
     ): NetworkResult<CreateStoryResponse> {
-        val description = createStoryRequest.description
-            .toRequestBody("text/plain".toMediaTypeOrNull())
+        val description =
+            createStoryRequest.description.toRequestBody("text/plain".toMediaTypeOrNull())
 
         val lat =
             createStoryRequest.lat?.toString()?.toRequestBody("text/plain".toMediaTypeOrNull())
@@ -41,10 +41,7 @@ class StoryRepositoryImpl @Inject constructor(
 
         return safeApiCall {
             storyApi.createStory(
-                description = description,
-                lat = lat,
-                lon = lon,
-                photo = photo
+                description = description, lat = lat, lon = lon, photo = photo
             )
         }
     }
