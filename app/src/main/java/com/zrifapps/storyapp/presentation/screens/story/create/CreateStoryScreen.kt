@@ -1,6 +1,8 @@
 package com.zrifapps.storyapp.presentation.screens.story.create
 
 import android.Manifest
+import android.app.Activity
+import android.content.Context
 import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -36,6 +38,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
@@ -56,10 +59,12 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil3.compose.AsyncImage
+import com.google.android.gms.location.LocationServices
 import com.zrifapps.storyapp.R
 import com.zrifapps.storyapp.common.util.createImageFile
 import com.zrifapps.storyapp.presentation.components.button.CustomButton
@@ -80,6 +85,9 @@ fun CreateStoryScreen(
 
     var description by remember { mutableStateOf("") }
     var isDescriptionError by remember { mutableStateOf(false) }
+
+    var isLocationEnabled by remember { mutableStateOf(false) }
+    var location by remember { mutableStateOf<Pair<Double, Double>?>(null) }
 
     val tempCameraUri = remember { mutableStateOf<Uri?>(null) }
 
@@ -219,6 +227,38 @@ fun CreateStoryScreen(
 
                 Spacer(modifier = Modifier.height(24.dp))
 
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 8.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(text = stringResource(R.string.add_current_location))
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Switch(
+                        checked = isLocationEnabled,
+                        onCheckedChange = { enabled ->
+                            isLocationEnabled = enabled
+                            if (enabled) {
+                                getCurrentLocation(context) { lat, lon ->
+                                    location = Pair(lat, lon)
+                                }
+                            } else {
+                                location = null
+                            }
+                        }
+                    )
+                }
+
+                HorizontalDivider(
+                    modifier = Modifier.padding(horizontal = 32.dp),
+                    thickness = 1.dp,
+                    color = MaterialTheme.colorScheme.outlineVariant
+                )
+
+                Spacer(modifier = Modifier.height(24.dp))
+
+
                 CustomButton(
                     text = stringResource(R.string.submit_story),
                     isLoading = state.isLoading,
@@ -233,7 +273,15 @@ fun CreateStoryScreen(
                             }
 
                             !isDescriptionError -> {
-                                viewModel.onEvent(CreateStoryEvent.CreateStory(description))
+                                val lat = location?.first?.toFloat()
+                                val lon = location?.second?.toFloat()
+                                viewModel.onEvent(
+                                    CreateStoryEvent.CreateStory(
+                                        description,
+                                        lat,
+                                        lon
+                                    )
+                                )
                             }
                         }
                     },
@@ -249,6 +297,28 @@ fun CreateStoryScreen(
         }
     }
 }
+
+private fun getCurrentLocation(context: Context, onLocationReceived: (Double, Double) -> Unit) {
+    val fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context)
+    if (ContextCompat.checkSelfPermission(
+            context,
+            Manifest.permission.ACCESS_FINE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED
+    ) {
+        fusedLocationProviderClient.lastLocation.addOnSuccessListener { location ->
+            location?.let {
+                onLocationReceived(it.latitude, it.longitude)
+            }
+        }
+    } else {
+        ActivityCompat.requestPermissions(
+            (context as Activity),
+            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+            1001
+        )
+    }
+}
+
 
 private fun launchCamera(
     context: android.content.Context,

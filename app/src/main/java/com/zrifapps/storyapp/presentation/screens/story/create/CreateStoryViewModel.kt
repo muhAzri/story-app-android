@@ -41,7 +41,7 @@ class CreateStoryViewModel @Inject constructor(
             }
 
             is CreateStoryEvent.CreateStory -> {
-                createStory(event.description)
+                createStory(event.description, event.lat, event.lon)
             }
 
             is CreateStoryEvent.ClearError -> {
@@ -58,13 +58,15 @@ class CreateStoryViewModel @Inject constructor(
         state = state.copy(error = null)
     }
 
-    private fun createStory(description: String) {
+    private fun createStory(description: String, lat: Float?, lon: Float?) {
         viewModelScope.launch {
             state = state.copy(isLoading = true, error = null)
 
             try {
                 val request = CreateStoryRequest(
                     description = description,
+                    lat = lat,
+                    lon = lon
                 )
 
                 val photoUri = state.photoUri ?: run {
@@ -106,6 +108,7 @@ class CreateStoryViewModel @Inject constructor(
             }
         }
     }
+
 
     sealed class UiEvent {
         data class ShowSnackbar(val message: String) : UiEvent()

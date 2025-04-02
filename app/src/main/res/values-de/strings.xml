@@ -96,4 +96,5 @@
     <!-- Empty State -->
     <string name="no_stories_available">Keine Geschichten verfügbar</string>
     <string name="be_the_first_to_share_a_story_by_tapping_the_button">Seien Sie der Erste, der eine Geschichte teilt, indem Sie auf die + Schaltfläche tippen</string>
+    <string name="add_current_location">Aktuellen Standort hinzufügen</string>
 </resources>

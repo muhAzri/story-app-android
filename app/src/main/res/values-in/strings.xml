@@ -96,4 +96,5 @@
     <!-- Empty State -->
     <string name="no_stories_available">Tidak ada cerita yang tersedia</string>
     <string name="be_the_first_to_share_a_story_by_tapping_the_button">Jadilah yang pertama membagikan cerita dengan mengetuk tombol +</string>
+    <string name="add_current_location">Tambahkan Lokasi Saat Ini</string>
 </resources>

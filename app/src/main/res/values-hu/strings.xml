@@ -96,4 +96,5 @@
     <!-- Empty State -->
     <string name="no_stories_available">Nincsenek elérhető történetek</string>
     <string name="be_the_first_to_share_a_story_by_tapping_the_button">Légy az első, aki történetet oszt meg a + gombra koppintva</string>
+    <string name="add_current_location">Jelenlegi hely hozzáadása</string>
 </resources>

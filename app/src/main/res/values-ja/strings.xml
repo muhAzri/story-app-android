@@ -96,4 +96,5 @@
     <!-- Empty State -->
     <string name="no_stories_available">利用可能なストーリーはありません</string>
     <string name="be_the_first_to_share_a_story_by_tapping_the_button">+ ボタンをタップして最初にストーリーを共有しましょう</string>
+    <string name="add_current_location">"現在地を追加   "</string>
 </resources>

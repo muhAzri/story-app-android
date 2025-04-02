@@ -96,5 +96,6 @@
     <!--  Empty State   -->
     <string name="no_stories_available">No Stories Available</string>
     <string name="be_the_first_to_share_a_story_by_tapping_the_button">Be the first to share a story by tapping the + button</string>
+    <string name="add_current_location">Add Current Location</string>
 
 </resources>
