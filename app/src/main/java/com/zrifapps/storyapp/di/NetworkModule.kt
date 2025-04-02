@@ -3,6 +3,7 @@ package com.zrifapps.storyapp.di
 import android.content.Context
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import com.zrifapps.storyapp.BuildConfig
 import com.zrifapps.storyapp.common.interceptor.AuthInterceptor
 import com.zrifapps.storyapp.common.session.SessionManager
 import dagger.Module
@@ -15,7 +16,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
-import com.zrifapps.storyapp.BuildConfig
 
 @Module
 @InstallIn(SingletonComponent::class)

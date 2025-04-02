@@ -31,6 +31,7 @@ class MapViewViewModel @Inject constructor(
             is MapViewEvent.LoadStoriesWithLocation -> {
                 getStoriesWithLocation()
             }
+
             is MapViewEvent.NavigateToStoryDetail -> {
                 viewModelScope.launch {
                     _eventFlow.emit(UiEvent.NavigateToStoryDetail(event.storyId))
