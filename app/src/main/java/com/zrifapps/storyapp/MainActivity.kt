@@ -6,7 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.rememberNavController
 import com.zrifapps.storyapp.common.navigation.AppRouter
-import com.zrifapps.storyapp.common.navigation.AppRoutes
+import com.zrifapps.storyapp.common.navigation.Home
+import com.zrifapps.storyapp.common.navigation.Onboarding
 import com.zrifapps.storyapp.common.session.SessionManager
 import com.zrifapps.storyapp.ui.theme.StoryAppTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,9 +25,9 @@ class MainActivity : ComponentActivity() {
 
 
         val startDestination = if (sessionManager.getAuthToken().isNullOrBlank()) {
-            AppRoutes.OnboardingRoute.route
+            Onboarding
         } else {
-            AppRoutes.HomeRoute.route
+            Home
         }
 
         setContent {

@@ -5,6 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.toRoute
 import com.zrifapps.storyapp.common.session.SessionManager
 import com.zrifapps.storyapp.presentation.screens.auth.login.LoginScreen
 import com.zrifapps.storyapp.presentation.screens.auth.onboarding.OnboardingScreen
@@ -17,82 +18,81 @@ import com.zrifapps.storyapp.presentation.screens.story.detail.StoryDetailScreen
 fun AppRouter(
     navController: NavHostController,
     modifier: Modifier = Modifier,
-    startDestination: String,
+    startDestination: AppRoutes,
     sessionManager: SessionManager,
 ) {
-    fun navigateTo(route: String, clearBackStack: Boolean = false) {
+
+    fun navigateTo(route: AppRoutes, clearBackStack: Boolean = false) {
         navController.navigate(route) {
             if (clearBackStack) {
-                popUpTo(AppRoutes.OnboardingRoute.route) { inclusive = true }
-            } else {
-                popUpTo(route) {
-                    inclusive = true
-                }
+                popUpTo(navController.graph.startDestinationRoute ?: "") { inclusive = true }
             }
         }
     }
 
+    fun handleLogout() {
+        sessionManager.clearSession()
+        navController.navigate(Login) {
+            popUpTo(0) { inclusive = true }
+        }
+    }
+
     NavHost(
-        navController = navController, startDestination = startDestination, modifier = modifier
+        navController = navController,
+        startDestination = startDestination,
+        modifier = modifier
     ) {
-        composable(AppRoutes.OnboardingRoute.route) {
+        composable<Onboarding> {
             OnboardingScreen(
-                onFinishOnboarding = { navigateTo(AppRoutes.LoginRoute.route) }
+                onFinishOnboarding = { navigateTo(Login) }
             )
         }
 
-        composable(AppRoutes.LoginRoute.route) {
+        composable<Login> {
             LoginScreen(
                 onNavigateToRegister = {
-                    navigateTo(
-                        AppRoutes.RegisterRoute.route,
-                        clearBackStack = true
-                    )
+                    navigateTo(Register, clearBackStack = true)
                 },
                 onLoginSuccess = {
-                    navigateTo(
-                        AppRoutes.HomeRoute.route,
-                        clearBackStack = true
-                    )
+                    navigateTo(Home, clearBackStack = true)
                 }
             )
         }
 
-        composable(AppRoutes.RegisterRoute.route) {
+        composable<Register> {
             RegisterScreen(
                 onNavigateToLogin = {
-                    navigateTo(
-                        AppRoutes.LoginRoute.route,
-                        clearBackStack = true
-                    )
+                    navigateTo(Login, clearBackStack = true)
                 },
             )
         }
 
-        composable(AppRoutes.HomeRoute.route) {
+        composable<Home> {
             HomeScreen(
                 onLogout = {
-                    sessionManager.clearSession()
-                    navigateTo(AppRoutes.LoginRoute.route, clearBackStack = true)
+                    handleLogout()
                 },
                 onNavigateToHome = {
-                    navigateTo(AppRoutes.HomeRoute.route, clearBackStack = true)
+                    navigateTo(Home)
                 },
                 onNavigateToStoryDetail = { storyId ->
-                    navigateTo(AppRoutes.StoryRoute.createRoute(storyId))
+                    navigateTo(Story(storyId))
                 },
                 onNavigateToAddStory = {
-                    navigateTo(AppRoutes.CreateStoryRoute.route)
+                    navigateTo(CreateStory)
                 },
             )
         }
 
-        composable(AppRoutes.StoryRoute.route) { backStackEntry ->
-            val storyId = backStackEntry.arguments?.getString("storyId") ?: return@composable
-            StoryDetailScreen(storyId = storyId, onNavigateBack = { navController.popBackStack() })
+        composable<Story> { backStackEntry ->
+            val story = backStackEntry.toRoute<Story>()
+            StoryDetailScreen(
+                storyId = story.storyId,
+                onNavigateBack = { navController.popBackStack() }
+            )
         }
 
-        composable(AppRoutes.CreateStoryRoute.route) {
+        composable<CreateStory> {
             CreateStoryScreen(
                 onNavigateBack = {
                     navController.popBackStack()
@@ -101,4 +101,3 @@ fun AppRouter(
         }
     }
 }
-

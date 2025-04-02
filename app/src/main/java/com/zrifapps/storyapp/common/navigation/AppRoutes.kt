@@ -1,13 +1,23 @@
 package com.zrifapps.storyapp.common.navigation
 
-sealed class AppRoutes(val route: String) {
-    data object OnboardingRoute : AppRoutes(route = "onboarding")
-    data object LoginRoute : AppRoutes(route = "login")
-    data object RegisterRoute : AppRoutes(route = "register")
-    data object HomeRoute : AppRoutes(route = "home")
-    data object StoryRoute : AppRoutes(route = "storyDetail/{storyId}") {
-        fun createRoute(storyId: String) = "storyDetail/$storyId"
-    }
+import kotlinx.serialization.Serializable
 
-    data object CreateStoryRoute : AppRoutes(route = "createStory")
-}
+interface AppRoutes
+
+@Serializable
+object Onboarding : AppRoutes
+
+@Serializable
+object Login : AppRoutes
+
+@Serializable
+object Register : AppRoutes
+
+@Serializable
+object Home : AppRoutes
+
+@Serializable
+object CreateStory : AppRoutes
+
+@Serializable
+data class Story(val storyId: String) : AppRoutes

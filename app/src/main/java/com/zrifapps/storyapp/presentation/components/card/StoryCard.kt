@@ -27,6 +27,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import coil3.request.ImageRequest
@@ -40,9 +41,10 @@ import com.zrifapps.storyapp.domain.story.entity.Story
 fun StoryCard(
     story: Story,
     onClick: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     Card(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 8.dp)
             .clickable(onClick = onClick),
@@ -131,4 +133,23 @@ fun StoryCard(
             }
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun StoryCardPreview() {
+    val mockStory = Story(
+        id = "1",
+        name = "John Doe",
+        description = "This is a sample story description to show in the card preview.",
+        createdAt = "2023-04-01",
+        photoUrl = "https://www.example.com/image.jpg",
+        lat = 0.0,
+        lon = 0.0
+    )
+
+    StoryCard(
+        story = mockStory,
+        onClick = {}
+    )
 }

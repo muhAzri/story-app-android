@@ -15,6 +15,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
+import com.zrifapps.storyapp.BuildConfig
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -41,7 +42,12 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideLoggingInterceptor(): HttpLoggingInterceptor {
-        return HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+        val loggingInterceptor = if (BuildConfig.DEBUG) {
+            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+        } else {
+            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
+        }
+        return loggingInterceptor
     }
 
     @Provides
@@ -60,7 +66,7 @@ object NetworkModule {
         moshi: Moshi,
         okHttpClient: OkHttpClient,
     ): Retrofit = Retrofit.Builder()
-        .baseUrl("https://story-api.dicoding.dev/v1/")
+        .baseUrl(BuildConfig.BASE_URL)
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .client(okHttpClient)
         .build()

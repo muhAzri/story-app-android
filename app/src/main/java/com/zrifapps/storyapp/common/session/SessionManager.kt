@@ -2,6 +2,7 @@ package com.zrifapps.storyapp.common.session
 
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.core.content.edit
 
 class SessionManager(context: Context) {
 
@@ -14,7 +15,9 @@ class SessionManager(context: Context) {
     }
 
     fun saveAuthToken(token: String) {
-        prefs.edit().putString(KEY_AUTH_TOKEN, token).apply()
+        prefs.edit {
+            putString(KEY_AUTH_TOKEN, token)
+        }
     }
 
     fun getAuthToken(): String? {
