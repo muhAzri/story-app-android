@@ -17,6 +17,9 @@ object Register : AppRoutes
 object Home : AppRoutes
 
 @Serializable
+object MapView : AppRoutes
+
+@Serializable
 object CreateStory : AppRoutes
 
 @Serializable

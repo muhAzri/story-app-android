@@ -87,4 +87,14 @@
     <string name="story_detail">Story Detail</string>
     <string name="something_went_wrong">Something went wrong!</string>
     <string name="fetching_location">Fetching location…</string>
+
+    <!--  Map View Screen -->
+    <string name="map">Map</string>
+    <string name="no_stories_with_location_available">No Stories With Location Available</string>
+    <string name="add_stories_with_location_to_see_them_on_the_map">Add stories with location to see them on the map</string>
+
+    <!--  Empty State   -->
+    <string name="no_stories_available">No Stories Available</string>
+    <string name="be_the_first_to_share_a_story_by_tapping_the_button">Be the first to share a story by tapping the + button</string>
+
 </resources>

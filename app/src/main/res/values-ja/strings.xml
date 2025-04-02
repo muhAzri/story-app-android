@@ -87,4 +87,13 @@
     <string name="story_detail">ストーリーの詳細</string>
     <string name="something_went_wrong">問題が発生しました！</string>
     <string name="fetching_location">位置情報を取得中…</string>
+
+    <!-- Map View Screen -->
+    <string name="map">地図</string>
+    <string name="no_stories_with_location_available">位置情報付きのストーリーはありません</string>
+    <string name="add_stories_with_location_to_see_them_on_the_map">地図に表示するには位置情報付きのストーリーを追加してください</string>
+
+    <!-- Empty State -->
+    <string name="no_stories_available">利用可能なストーリーはありません</string>
+    <string name="be_the_first_to_share_a_story_by_tapping_the_button">+ ボタンをタップして最初にストーリーを共有しましょう</string>
 </resources>

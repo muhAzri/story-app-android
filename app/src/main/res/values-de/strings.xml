@@ -87,4 +87,13 @@
     <string name="story_detail">Geschichtsdetails</string>
     <string name="something_went_wrong">Etwas ist schiefgelaufen!</string>
     <string name="fetching_location">Standort wird abgerufen…</string>
+
+    <!-- Map View Screen -->
+    <string name="map">Karte</string>
+    <string name="no_stories_with_location_available">Keine Geschichten mit Standort verfügbar</string>
+    <string name="add_stories_with_location_to_see_them_on_the_map">Fügen Sie Geschichten mit Standort hinzu, um sie auf der Karte zu sehen</string>
+
+    <!-- Empty State -->
+    <string name="no_stories_available">Keine Geschichten verfügbar</string>
+    <string name="be_the_first_to_share_a_story_by_tapping_the_button">Seien Sie der Erste, der eine Geschichte teilt, indem Sie auf die + Schaltfläche tippen</string>
 </resources>

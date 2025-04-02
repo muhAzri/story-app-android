@@ -26,20 +26,22 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
+import com.zrifapps.storyapp.R
+import com.zrifapps.storyapp.common.navigation.DrawerNavigationHandler
 import com.zrifapps.storyapp.presentation.components.AppScaffold
 import com.zrifapps.storyapp.presentation.components.card.StoryCard
 import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun HomeScreen(
-    onNavigateToHome: () -> Unit,
-    onLogout: () -> Unit,
+    drawerNavigationHandler: DrawerNavigationHandler,
     onNavigateToStoryDetail: (String) -> Unit,
     onNavigateToAddStory: () -> Unit,
     viewModel: HomeViewModel = hiltViewModel(),
@@ -88,8 +90,7 @@ fun HomeScreen(
 
     AppScaffold(
         title = "Dicoding Story",
-        onNavigateToHome = onNavigateToHome,
-        onLogout = onLogout,
+        drawerNavigationHandler = drawerNavigationHandler,
         currentRoute = "home",
     ) {
         SwipeRefresh(
@@ -141,7 +142,7 @@ fun HomeScreen(
                         Spacer(modifier = Modifier.height(16.dp))
 
                         Text(
-                            text = "No Stories Available",
+                            text = stringResource(R.string.no_stories_available),
                             style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.Bold
                         )
@@ -149,7 +150,7 @@ fun HomeScreen(
                         Spacer(modifier = Modifier.height(8.dp))
 
                         Text(
-                            text = "Be the first to share a story by tapping the + button",
+                            text = stringResource(R.string.be_the_first_to_share_a_story_by_tapping_the_button),
                             style = MaterialTheme.typography.bodyMedium,
                             textAlign = TextAlign.Center
                         )

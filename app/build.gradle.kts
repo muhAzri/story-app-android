@@ -20,6 +20,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "BASE_URL", "\"https://story-api.dicoding.dev/v1/\"")
+        resValue("string", "MAPS_API_KEY", "\"AIzaSyCewp35KH26uEUEM6ywqXfvr6E8vWZkOCQ\"")
     }
 
     buildTypes {
@@ -89,5 +90,9 @@ dependencies {
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
     implementation(libs.accompanist.swiperefresh)
+
+    //Map
+    implementation(libs.maps.compose)
+    implementation(libs.play.services.maps)
 
 }

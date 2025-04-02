@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Logout
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Map
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.DrawerValue
@@ -36,23 +37,21 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.zrifapps.storyapp.R
+import com.zrifapps.storyapp.common.navigation.DrawerNavigationHandler
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AppScaffold(
     title: String,
-    onNavigateToHome: () -> Unit,
-    onLogout: () -> Unit,
+    drawerNavigationHandler: DrawerNavigationHandler,
     currentRoute: String = "home",
     content: @Composable () -> Unit,
 ) {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
-
     val showLogoutDialog = remember { mutableStateOf(false) }
-
 
     if (showLogoutDialog.value) {
         AlertDialog(
@@ -63,7 +62,7 @@ fun AppScaffold(
                 TextButton(
                     onClick = {
                         showLogoutDialog.value = false
-                        onLogout()
+                        drawerNavigationHandler.onLogout()
                     }
                 ) {
                     Text("Yes", color = MaterialTheme.colorScheme.primary)
@@ -101,7 +100,6 @@ fun AppScaffold(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-
                 NavigationDrawerItem(
                     icon = { Icon(Icons.Default.Home, contentDescription = "Home") },
                     label = { Text(stringResource(R.string.home)) },
@@ -109,7 +107,7 @@ fun AppScaffold(
                     onClick = {
                         scope.launch {
                             drawerState.close()
-                            onNavigateToHome()
+                            drawerNavigationHandler.onNavigateToHome()
                         }
                     },
                     modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding),
@@ -118,9 +116,25 @@ fun AppScaffold(
                         selectedTextColor = MaterialTheme.colorScheme.onPrimary,
                         selectedIconColor = MaterialTheme.colorScheme.onPrimary
                     ),
+                )
 
-                    )
-
+                NavigationDrawerItem(
+                    icon = { Icon(Icons.Default.Map, contentDescription = "Map") },
+                    label = { Text(stringResource(R.string.map)) },
+                    selected = currentRoute == "map",
+                    onClick = {
+                        scope.launch {
+                            drawerState.close()
+                            drawerNavigationHandler.onNavigateToMap()
+                        }
+                    },
+                    modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding),
+                    colors = NavigationDrawerItemDefaults.colors(
+                        selectedContainerColor = MaterialTheme.colorScheme.primary,
+                        selectedTextColor = MaterialTheme.colorScheme.onPrimary,
+                        selectedIconColor = MaterialTheme.colorScheme.onPrimary
+                    ),
+                )
 
                 NavigationDrawerItem(
                     icon = {
@@ -134,7 +148,6 @@ fun AppScaffold(
                     onClick = {
                         scope.launch {
                             drawerState.close()
-
                             showLogoutDialog.value = true
                         }
                     },

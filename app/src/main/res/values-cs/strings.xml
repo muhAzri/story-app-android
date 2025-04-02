@@ -87,4 +87,13 @@
     <string name="story_detail">Detail příběhu</string>
     <string name="something_went_wrong">Něco se pokazilo!</string>
     <string name="fetching_location">Získávání polohy…</string>
+
+    <!-- Map View Screen -->
+    <string name="map">Mapa</string>
+    <string name="no_stories_with_location_available">Žádné příběhy s umístěním nejsou k dispozici</string>
+    <string name="add_stories_with_location_to_see_them_on_the_map">Přidejte příběhy s umístěním, abyste je viděli na mapě</string>
+
+    <!-- Empty State -->
+    <string name="no_stories_available">Žádné příběhy nejsou k dispozici</string>
+    <string name="be_the_first_to_share_a_story_by_tapping_the_button">Buďte první, kdo sdílí příběh klepnutím na tlačítko +</string>
 </resources>

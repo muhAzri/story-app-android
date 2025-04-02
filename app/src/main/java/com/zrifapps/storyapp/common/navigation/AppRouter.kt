@@ -11,6 +11,7 @@ import com.zrifapps.storyapp.presentation.screens.auth.login.LoginScreen
 import com.zrifapps.storyapp.presentation.screens.auth.onboarding.OnboardingScreen
 import com.zrifapps.storyapp.presentation.screens.auth.register.RegisterScreen
 import com.zrifapps.storyapp.presentation.screens.home.HomeScreen
+import com.zrifapps.storyapp.presentation.screens.map.MapViewScreen
 import com.zrifapps.storyapp.presentation.screens.story.create.CreateStoryScreen
 import com.zrifapps.storyapp.presentation.screens.story.detail.StoryDetailScreen
 
@@ -37,26 +38,25 @@ fun AppRouter(
         }
     }
 
+
+    val drawerNavigationHandler = DrawerNavigationHandler.create(
+        navigateTo = { route -> navigateTo(route) },
+        handleLogout = { handleLogout() }
+    )
+
     NavHost(
-        navController = navController,
-        startDestination = startDestination,
-        modifier = modifier
+        navController = navController, startDestination = startDestination, modifier = modifier
     ) {
         composable<Onboarding> {
-            OnboardingScreen(
-                onFinishOnboarding = { navigateTo(Login) }
-            )
+            OnboardingScreen(onFinishOnboarding = { navigateTo(Login) })
         }
 
         composable<Login> {
-            LoginScreen(
-                onNavigateToRegister = {
-                    navigateTo(Register, clearBackStack = true)
-                },
-                onLoginSuccess = {
-                    navigateTo(Home, clearBackStack = true)
-                }
-            )
+            LoginScreen(onNavigateToRegister = {
+                navigateTo(Register, clearBackStack = true)
+            }, onLoginSuccess = {
+                navigateTo(Home, clearBackStack = true)
+            })
         }
 
         composable<Register> {
@@ -69,12 +69,7 @@ fun AppRouter(
 
         composable<Home> {
             HomeScreen(
-                onLogout = {
-                    handleLogout()
-                },
-                onNavigateToHome = {
-                    navigateTo(Home)
-                },
+                drawerNavigationHandler = drawerNavigationHandler,
                 onNavigateToStoryDetail = { storyId ->
                     navigateTo(Story(storyId))
                 },
@@ -84,12 +79,19 @@ fun AppRouter(
             )
         }
 
+        composable<MapView> {
+            MapViewScreen(
+                drawerNavigationHandler = drawerNavigationHandler,
+                onNavigateToStoryDetail = { storyId ->
+                    navigateTo(Story(storyId))
+                },
+            )
+        }
+
         composable<Story> { backStackEntry ->
             val story = backStackEntry.toRoute<Story>()
-            StoryDetailScreen(
-                storyId = story.storyId,
-                onNavigateBack = { navController.popBackStack() }
-            )
+            StoryDetailScreen(storyId = story.storyId,
+                onNavigateBack = { navController.popBackStack() })
         }
 
         composable<CreateStory> {

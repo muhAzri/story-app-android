@@ -87,4 +87,13 @@
     <string name="story_detail">Detail Cerita</string>
     <string name="something_went_wrong">Terjadi kesalahan!</string>
     <string name="fetching_location">Mengambil lokasi…</string>
+
+    <!-- Map View Screen -->
+    <string name="map">Peta</string>
+    <string name="no_stories_with_location_available">Tidak ada cerita dengan lokasi yang tersedia</string>
+    <string name="add_stories_with_location_to_see_them_on_the_map">Tambahkan cerita dengan lokasi agar muncul di peta</string>
+
+    <!-- Empty State -->
+    <string name="no_stories_available">Tidak ada cerita yang tersedia</string>
+    <string name="be_the_first_to_share_a_story_by_tapping_the_button">Jadilah yang pertama membagikan cerita dengan mengetuk tombol +</string>
 </resources>

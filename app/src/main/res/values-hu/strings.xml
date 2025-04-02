@@ -87,4 +87,13 @@
     <string name="story_detail">Történet részletei</string>
     <string name="something_went_wrong">Valami hiba történt!</string>
     <string name="fetching_location">Helyzet meghatározása…</string>
+
+    <!-- Map View Screen -->
+    <string name="map">Térkép</string>
+    <string name="no_stories_with_location_available">Nincsenek elérhető történetek helyszínnel</string>
+    <string name="add_stories_with_location_to_see_them_on_the_map">Adj hozzá történeteket helyszínnel, hogy megjelenjenek a térképen</string>
+
+    <!-- Empty State -->
+    <string name="no_stories_available">Nincsenek elérhető történetek</string>
+    <string name="be_the_first_to_share_a_story_by_tapping_the_button">Légy az első, aki történetet oszt meg a + gombra koppintva</string>
 </resources>
