@@ -1,16 +1,18 @@
 package com.zrifapps.storyapp.presentation.screens.home
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.zrifapps.storyapp.common.network.NetworkResult
-import com.zrifapps.storyapp.data.story.request.GetStoryRequest
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
+import com.zrifapps.storyapp.data.story.paging.StoryPagingSource
 import com.zrifapps.storyapp.domain.story.entity.Story
 import com.zrifapps.storyapp.domain.story.repository.StoryRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -20,26 +22,23 @@ class HomeViewModel @Inject constructor(
     private val storyRepository: StoryRepository,
 ) : ViewModel() {
 
-    var state by mutableStateOf(HomeState())
-        private set
+    private val _uiState = MutableStateFlow(HomeState())
+    val uiState: StateFlow<HomeState> = _uiState
 
     private val _eventFlow = MutableSharedFlow<UiEvent>()
     val eventFlow = _eventFlow.asSharedFlow()
 
-    private var currentPage = 1
-    private var isLastPage = false
+    private val _storiesPagingFlow = MutableStateFlow<PagingData<Story>>(PagingData.empty())
+    val storiesPagingFlow: StateFlow<PagingData<Story>> = _storiesPagingFlow
 
+    init {
+        loadStories()
+    }
 
     fun onEvent(event: HomeEvent) {
         when (event) {
             is HomeEvent.RefreshStories -> {
-                getStories(false)
-            }
-
-            is HomeEvent.LoadMoreStories -> {
-                if (!state.isLoadingMore && !isLastPage && !state.isLoading) {
-                    getStories(true)
-                }
+                loadStories()
             }
 
             is HomeEvent.NavigateToStoryDetail -> {
@@ -56,66 +55,32 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    private fun getStories(loadMore: Boolean) {
+    private fun loadStories() {
         viewModelScope.launch {
+            _uiState.value = _uiState.value.copy(isLoading = true, error = null)
 
-            if (!loadMore) {
-                state = state.copy(isLoading = true, error = null)
-                currentPage = 1
-                isLastPage = false
-            } else {
-                state = state.copy(isLoadingMore = true, error = null)
-            }
+            try {
+                val pagingData = Pager(
+                    config = PagingConfig(
+                        pageSize = 10,
+                        enablePlaceholders = false,
+                        prefetchDistance = 2
+                    ),
+                    pagingSourceFactory = { StoryPagingSource(storyRepository) }
+                ).flow.cachedIn(viewModelScope)
 
-            when (val result = storyRepository.stories(GetStoryRequest(page = currentPage))) {
-                is NetworkResult.Success -> {
-                    val stories = result.data.listStory.map { storyDto ->
-                        Story(
-                            id = storyDto.id,
-                            name = storyDto.name,
-                            description = storyDto.description,
-                            photoUrl = storyDto.photoUrl,
-                            createdAt = storyDto.createdAt,
-                            lat = storyDto.lat,
-                            lon = storyDto.lon
-                        )
-                    }
-
-                    isLastPage = stories.isEmpty()
-
-                    if (!loadMore) {
-                        state = state.copy(
-                            stories = stories,
-                            isLoading = false,
-                            isLoadingMore = false,
-                            error = null
-                        )
-                        currentPage++
-                    } else {
-                        state = state.copy(
-                            stories = state.stories + stories,
-                            isLoadingMore = false,
-                            error = null
-                        )
-                        currentPage++
-                    }
+                pagingData.collect {
+                    _storiesPagingFlow.value = it
+                    _uiState.value = _uiState.value.copy(isLoading = false)
                 }
-
-                is NetworkResult.Error -> {
-                    state = state.copy(
-                        error = result.message ?: "Unknown error occurred",
-                        isLoading = false,
-                        isLoadingMore = false
-                    )
-                    viewModelScope.launch {
-                        _eventFlow.emit(
-                            UiEvent.ShowSnackbar(
-                                result.message ?: "Unknown error occurred"
-                            )
-                        )
-                    }
-                }
-
+            } catch (e: Exception) {
+                _uiState.value = _uiState.value.copy(
+                    error = e.message ?: "Unknown error occurred",
+                    isLoading = false
+                )
+                _eventFlow.emit(
+                    UiEvent.ShowSnackbar(e.message ?: "Unknown error occurred")
+                )
             }
         }
     }
