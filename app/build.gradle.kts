@@ -105,7 +105,20 @@ dependencies {
     implementation(libs.androidx.paging.runtime.ktx)
     implementation(libs.androidx.paging.compose)
 
-    //Location
-    implementation(libs.play.services.location)
+    // AndroidX Test
+    testImplementation(libs.androidx.core.testing)
+    testImplementation(libs.androidx.core)
+    testImplementation(libs.androidx.runner)
+
+    // Mockito
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.inline)
+    testImplementation(libs.mockito.kotlin)
+
+    // Coroutines Test
+    testImplementation(libs.kotlinx.coroutines.test)
+
+    // Paging Test
+    testImplementation(libs.androidx.paging.common)
 
 }

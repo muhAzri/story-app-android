@@ -131,7 +131,7 @@ private fun HandlePagingStates(
                 verticalArrangement = androidx.compose.foundation.layout.Arrangement.Center
             ) {
                 Text(
-                    text = "Something went wrong!",
+                    text = stringResource(R.string.something_went_wrong),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
                 )
