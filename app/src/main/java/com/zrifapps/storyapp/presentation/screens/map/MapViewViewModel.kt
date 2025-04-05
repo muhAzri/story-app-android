@@ -31,6 +31,7 @@ class MapViewViewModel @Inject constructor(
             is MapViewEvent.LoadStoriesWithLocation -> {
                 getStoriesWithLocation()
             }
+            //
 
             is MapViewEvent.NavigateToStoryDetail -> {
                 viewModelScope.launch {
@@ -47,7 +48,6 @@ class MapViewViewModel @Inject constructor(
             when (val result = storyRepository.stories(GetStoryRequest(page = 1, location = 1))) {
                 is NetworkResult.Success -> {
                     val stories = result.data.listStory.mapNotNull { storyDto ->
-                        // Only include stories that have valid location data
                         if (storyDto.lat != null && storyDto.lon != null) {
                             Story(
                                 id = storyDto.id,

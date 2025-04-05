@@ -55,7 +55,6 @@ class HomeViewModelTest {
 
     @Test
     fun `when get stories should return success with data`() = runTest {
-        // Given
         val dummyStories = listOf(
             Story(
                 id = "story-1",
@@ -111,16 +110,12 @@ class HomeViewModelTest {
 
         differ.submitData(pagingData)
 
-        // Assert
         val actualStories = differ.snapshot().items
 
         assertNotNull(actualStories)
-
         assertEquals(dummyStories.size, actualStories.size)
+        assertEquals(dummyStories[0], actualStories[0])
 
-        assertEquals(dummyStories[0].id, actualStories[0].id)
-        assertEquals(dummyStories[0].name, actualStories[0].name)
-        assertEquals(dummyStories[0].description, actualStories[0].description)
     }
 
     @Test
