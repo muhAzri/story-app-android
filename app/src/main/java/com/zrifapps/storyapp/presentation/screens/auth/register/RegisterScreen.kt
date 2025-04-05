@@ -216,6 +216,12 @@ fun RegisterScreen(
                                 !ValidationUtils.validatePassword(it) -> passwordErrorInvalid
                                 else -> null
                             }
+
+                            confirmPasswordError = when {
+                                confirmPassword.isEmpty() -> confirmPasswordErrorEmpty
+                                confirmPassword != it -> confirmPasswordErrorMismatch
+                                else -> null
+                            }
                         },
                         label = stringResource(R.string.password_label),
                         leadingIcon = Icons.Default.Lock,
